@@ -2,10 +2,4 @@
   <h1> {{title}} </h1>
 </div>
 
-<div class="box">
-  <app-persona *ngFor="let personaElement of personas" [persona]="personaElement"></app-persona>
-</div>
-
-<div class="box">
-  <app-formulario></app-formulario>
-</div>
+<router-outlet></router-outlet>

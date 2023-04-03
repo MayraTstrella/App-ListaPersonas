@@ -1,0 +1,15 @@
+<div class="item">
+<ul>
+  <li>
+
+    <!-- usando queryParams -->
+
+    <a [routerLink]="['/personas', id]"
+
+       [queryParams]="{ modoEdicion:1 }" > 
+
+     {{ persona.nombre }} {{ persona.apellido }}
+    </a>
+  </li>
+</ul>
+</div>
