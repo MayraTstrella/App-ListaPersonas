@@ -13,13 +13,19 @@ export class PersonasComponent {
 
   personas: Persona[] = [];
 
-  constructor( private logginService: LoggingService,
-               private personasService: PersonasService,
-               private router:Router ){
+  constructor(private logginService: LoggingService,
+    private personasService: PersonasService,
+    private router: Router) {
 
   }
   ngOnInit(): void {
-   this.personas = this.personasService.personas;
+    this.personasService.listaPersonas()
+      .subscribe(
+        (personas: Persona[]) => {
+          this.personas = personas;
+          this.personasService.setPersonas(personas);
+        }
+      );
   }
 
   agregar() {
