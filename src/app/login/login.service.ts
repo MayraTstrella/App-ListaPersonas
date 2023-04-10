@@ -33,4 +33,15 @@ export class LoginService {
     getIdToken() {
         return this.token;
     }
+
+    isLogin() {
+        return this.token != null;
+    }
+
+    logout() {
+        firebase.auth().signOut().then( () => {
+            this.token = null;
+            this.router.navigate(['login']);
+        } )
+    }
 }
