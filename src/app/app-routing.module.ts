@@ -5,11 +5,12 @@ import { PersonasComponent } from './personas/personas.component';
 import { FormularioComponent } from './personas/formulario/formulario.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard.service';
 
 
 const routes: Routes = [
-  {path: '', component: PersonasComponent},
-  {path: 'personas', component: PersonasComponent, children: [
+  {path: '', component: PersonasComponent, canActivate:[LoginGuard]},
+  {path: 'personas', component: PersonasComponent, canActivate:[LoginGuard], children: [
 
     {path: 'agregar', component: FormularioComponent},
     {path: ':id', component: FormularioComponent}
